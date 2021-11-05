@@ -39,7 +39,10 @@ while not(hbakki.count("m")==3 and hbakki.count("n")==3):
                 elif inp not in vbakki:
                     print("þessi maður er ekki á bakkanum reyndu aftur")
                 else:
-                    batur.append(inp)                   
+                    batur.append(inp)
+                if batur == ["0","0"]:
+                    print("einhver þarf að vera í bátnum, reyndu upp á nýtt")
+                    batur=[]
 
             
             if (batur.count("m")+hbakki.count("m")>batur.count("n")+hbakki.count("n") and
@@ -83,7 +86,10 @@ while not(hbakki.count("m")==3 and hbakki.count("n")==3):
                 elif inp not in hbakki:
                      print("þessi maður er ekki á bakkanum reyndu aftur")
                 else:
-                    batur.append(inp)     
+                    batur.append(inp)
+                if batur == ["0","0"]:
+                    print("einhver þarf að vera í bátnum, reyndu upp á nýtt")
+                    batur=[]
             
             if (batur.count("m")+vbakki.count("m")>batur.count("n")+vbakki.count("n") and
                 vbakki.count("n")+batur.count("n")!=0) or (hbakki.count("m")-batur.count("m")>hbakki.count("n")-batur.count("n") and
