@@ -1,8 +1,18 @@
 import turtle
+import random
 
 #Screen
 wn = turtle.Screen()
 wn.bgcolor('green')
+
+class Enemy(turtle.Turtle):
+    def __init__(self):
+        super().__init__(shape='circle')
+        self.shapesize(2,2)
+        self.up()
+        self.color('red')
+        self.dx = -0.5
+        self.goto(420, random.randint(0,250))
 
 #drawborder
 my_pen = turtle.Turtle()
