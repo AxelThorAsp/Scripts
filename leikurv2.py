@@ -11,7 +11,14 @@ class Bank:
         return "{} lions and {} wildebeest \n".format(self.animals.count("l"), self.animals.count("w"))
     
     def check_state(self) -> bool:
+        if self.animals.count("w") == 0:
+            return True
+        if self.animals.count("l") == 0:
+            return True
         return self.animals.count("w") >= self.animals.count("l")
+    
+    def check_win(self) -> bool:
+        return len(self.animals) == 6
 
 class Boat:
     def __init__(self, side=True, num=0):
@@ -53,6 +60,7 @@ boat = Boat()
 rbank = Bank(start=True)
 lbank = Bank()
 l=["w","l"]
+turns = 0
 while True:
     print("")
     boat.print_river()
@@ -92,4 +100,7 @@ while True:
     if not boat.other_side().check_state():
         print(boat.other_side())
         raise ValueError("Game over, you lost")
-                
+    if boat.left_bank.check_win():
+        print("You win")
+        break
+            
