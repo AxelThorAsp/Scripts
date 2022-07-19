@@ -1,5 +1,6 @@
 import turtle
 import random
+import time
 
 #Screen
 wn = turtle.Screen()
@@ -32,6 +33,7 @@ player.color('blue')
 player.shape('triangle')
 player.penup()
 player.speed(0)
+wn.tracer(0)
 
 #key listen
 def turnleft():
@@ -41,7 +43,6 @@ def turnright():
     player.right(15)
 
 
-
 turtle.listen()
 turtle.onkeypress(turnleft,'Left')
 turtle.onkeypress(turnright,'Right')
@@ -49,11 +50,17 @@ wn.listen()
 
 
 
+def f():
+    print("hello, from f")
 
 while True:
+    wn.update()
+    #wn.ontimer(f,10000)
     if abs(player.position()[0]) > 300:
         player.setposition(-player.position()[0],player.position()[1])
     if abs(player.position()[1]) > 300:
         player.setposition(player.position()[0],-player.position()[1])
     player.forward(3)
+    time.sleep(0.017)
+
 
